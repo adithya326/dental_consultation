@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline CSS for demonstration; ideally, this should go into styles.css */
+        .form-heading {
+            text-align: center;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="profile-placeholder.png" alt="Profile" class="profile-pic">
+                <h2>Administrator</h2>
+                <p>admin@edoc.com</p>
+                <button class="logout-btn">Log out</button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="admin.html">Dashboard</a></li>
+                    <li><a href="doc.html">Doctors Project</a></li>
+                    <li><a href="book.html">Manage Doctors</a></li>
+                    <li><a href="#">Manage Booking</a></li>
+                    <li><a href="#">Reports</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1>Admin's Side</h1>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search Doctor name or Email">
+                    <button>Search</button>
+                </div>
+                <p class="date">Today's Date: <script>
+                    const today = new Date();
+                    const formattedDate = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+                    document.write(formattedDate);
+                </script></p>
+                
+            </header>
+
+            <section class="status">
+                <div class="status-item">
+                    <h3>1</h3>
+                    <p>Doctors</p>
+                </div>
+                <div class="status-item">
+                    <h3>2</h3>
+                    <p>Patients</p>
+                </div>
+                <div class="status-item">
+                    <h3>1</h3>
+                    <p>New Booking</p>
+                </div>
+                <div class="status-item">
+                    <h3>0</h3>
+                    <p>Today Sessions</p>
+                </div>
+            </section>
+    <section class="form-section">
+        <h1 class="form-heading">Book Appointment</h1>
+        <form class="appointment-form" action="#" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="patient-name">Patient Name:</label>
+                <input type="text" id="patient-name" name="patient-name" placeholder="Enter Patient's Name" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="doctor">Doctor:</label>
+                <input type="text" id="doctor" name="doctor" placeholder="Enter Doctor's Name" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="description">Description of Disease:</label>
+                <textarea id="description" name="description" rows="4" placeholder="Enter a brief description of the disease" required></textarea>
+            </div>
+    
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Book Now</button>
+            </div>
+        </form>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Doctor Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline CSS for demonstration; ideally, this should go into styles.css */
+        .form-heading {
+            text-align: center;
+            text-decoration: underline;
+        }
+        /* Add some basic styling to the container */
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+        /* Basic dropdown styling */
+        .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="profile-placeholder.png" alt="Profile" class="profile-pic">
+                <h2>Administrator</h2>
+                <p>admin@edoc.com</p>
+                <button class="logout-btn">Log out</button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="admin.html">Dashboard</a></li>
+                    <li class="nav-item">
+                        <a href="#">Doctors Project</a>
+                        <div class="dropdown-content">
+                            <a href="doc.html">Add Doctor</a>
+                            <a href="list.php">View Doctor</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Services</a>
+                        <div class="dropdown-content">
+                            <a href="services.html">Add Service</a>
+                            <a href="serviceview.php">View Service</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Manage Booking</a>
+                        <div class="dropdown-content">
+                            <a href="bookinglist.php">Dr Booking</a>
+                            <a href="servicelist.php">Service Booking</a>
+                        </div>
+                    </li>
+                    <li><a href="feedbacklist.php">Feedback</a></li>
+                    <li><a href="adminlist.php">Reports</a></li>
+                    <li><a href="#" onclick="confirmLogout(); return false;">Logout</a></li>
+                </ul>
+            </nav>
+            <script>
+                function confirmLogout() {
+                    if (confirm("Are you sure you want to log out?")) {
+                        window.location.href = "log.html";
+                    }
+                }
+            </script>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1>Admin's Side</h1>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search Doctor name or Email">
+                    <button>Search</button>
+                </div>
+                <p class="date">Today's Date: <script>document.write(new Date().toISOString().slice(0, 10));</script></p>
+            </header>
+
+            <section class="status">
+                <div class="status-item">
+                    <h3>1</h3>
+                    <p>Doctors</p>
+                </div>
+                <div class="status-item">
+                    <h3>2</h3>
+                    <p>Patients</p>
+                </div>
+                <div class="status-item">
+                    <h3>1</h3>
+                    <p>New Booking</p>
+                </div>
+                <div class="status-item">
+                    <h3>0</h3>
+                    <p>Today Sessions</p>
+                </div>
+            </section>
+
+            <!-- Form Heading -->
+            <section class="form-section">
+                <h1 class="form-heading">Add Doctor</h1>
+                <form class="doctor-form" action="doctor.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="doctor-name">Doctor Name:</label>
+                        <input type="text" id="doctor-name" name="doctorname" placeholder="Enter Doctor's Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Experience (in years):</label>
+                        <input type="number" id="experience" name="experience" placeholder="Enter Experience in Years" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" rows="4" placeholder="Enter a brief description" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location:</label>
+                        <select id="location" name="location" required>
+                            <option value="" disabled selected>Choose your location</option>
+                            <option value="Trissur">Trissur</option>
+                            <option value="Palakkad">Palakkad</option>
+                            <option value="Malappuram">Malappuram</option>
+                            <option value="Kozhikode">Kozhikode</option>
+                            <option value="Ernakulam">Ernakulam</option>
+                            <option value="Alappuzha">Alappuzha</option>
+                            <option value="Kottayam">Kottayam</option>
+                            <option value="Kollam">Kollam</option>
+                            <option value="Trivandrum">Trivandrum</option>
+                            <option value="Idukki">Idukki</option>
+                            <option value="Kasaragod">Kasaragod</option>
+                            <option value="Kannur">Kannur</option>
+                            <option value="Pathanamthitta">Pathanamthitta</option>
+                            <option value="Wayanad">Wayanad</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="available_time">Available Time:</label>
+                        <input type="time" id="available_time" name="available_time" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="doctor-image">Doctor Image:</label>
+                        <input type="file" id="doctor-image" name="doctorimage" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn">Add Doctor</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

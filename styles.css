@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #67677c;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #b5bfc2;
+    padding: 20px;
+    border-right: 1px solid #131010;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.profile h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.profile p {
+    color: #666;
+    font-size: 14px;
+}
+
+.logout-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #aac5a1;
+    color: #96a7a4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar-nav ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #cc8787;
+    padding: 10px;
+    display: block;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: #50585e;
+    border-radius: 5px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #cad8c9;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 24px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: 1px solid #ca9f9f;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 8px 15px;
+    background-color: #697077;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.date {
+    color: #864242;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.status-item {
+    background-color: #9ba2a5;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    width: 22%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.status-item h3 {
+    font-size: 24px;
+    color: #394452;
+}
+
+.status-item p {
+    color: #7c6060;
+}
+
+.appointments-sessions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.appointments, .sessions {
+    width: 48%;
+    background-color: #6b8081;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(95, 85, 85, 0.1);
+}
+
+.appointments h2, .sessions h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.appointments p, .sessions p {
+    color: #363232;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+table th, table td {
+    border: 1px solid #c9bfbf;
+    padding: 8px;
+    text-align: left;
+}
+
+.empty-table {
+    text-align: center;
+    color: #965c5c;
+}
+
+.show-btn {
+    padding: 10px 15px;
+    background-color: #8795a3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* All previous CSS remains the same */
+
+.expandable-content {
+    display: none; /* Initially, the content is hidden */
+}
+
+.show-btn {
+    padding: 10px 15px;
+    background-color: #808b96;
+    color: #b8a9a9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.show-btn:hover {
+    background-color: #7e8d9e;
+}
+/* All previous CSS remains the same */
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar-nav ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #080808;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: #ad7272;
+    border-left: 4px solid #5c6d80; /* Add a blue border to indicate active or hovered item */
+    color: #b7cbdf;
+}
+
+/* Styling for logout button inside the profile section */
+.logout-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #d86268;
+    color: #312222;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #f39494;
+}
+/* Basic reset */
+body, h1, form, input, textarea, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #9baab1;
+    border-bottom: 1px solid #e7c5c5;
+    padding: 10px;
+    text-align: center;
+    z-index: 1000; /* Ensure the header stays above other content */
+}
+
+/* Container styles */
+.container {
+    margin-top: 60px; /* Adjust based on header height to avoid overlap */
+    padding: 20px;
+}
+
+/* Form styles */
+.doctor-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #676d72;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], 
+input[type="number"], 
+input[type="time"], 
+textarea, 
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #7a6d6d;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #3ca6e4;
+    color: #141313;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #3e4852;
+}
+.form-heading {
+    text-align: center;
+}
+.dropbtn {
+    background-color: #6ee972;
+    color: rgb(223, 187, 187);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #c5c2c2;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #68d36c;
+  }
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        <style>
+/* Basic dropdown styling */
+.nav-item {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.nav-item:hover .dropdown-content {
+    display: block;
+}
+</style>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="profile-placeholder.png" alt="Profile" class="profile-pic">
+                <h2>Administrator</h2>
+                <p>admin@edoc.com</p>
+                <button class="logout-btn">Log out</button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="admin.html">Dashboard</a></li>
+                    <li class="nav-item">
+                        <a href="">Doctors Project</a>
+                        <div class="dropdown-content">
+                            <a href="doc.html">Add Doctor</a>
+                            <a href="list.php">View Doctor</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">Services</a>
+                        <div class="dropdown-content">
+                            <a href="services.html">Add service</a>
+                            <a href="serviceview.php">View service</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="">Manage Booking</a>
+                        <div class="dropdown-content">
+                            <a href="bookinglist.php">Dr Booking</a>
+                            <a href="servicelist.php">Service Booking</a>
+                        </div>
+                    </li>
+                    <li><a href="feedbacklist.php">Feedback</a></li>
+                    <li><a href="adminlist.php">Reports</a></li>
+                    <li><a href="#" onclick="confirmLogout(); return false;">Logout</a></li>
+
+<script>
+function confirmLogout() {
+    // Show confirmation prompt
+    if (confirm("Are you sure you want to log out?")) {
+        // If the user clicks "Yes," redirect to adminlog.php
+        window.location.href = "log.html";
+    }
+    // If the user clicks "No," nothing happens and they stay on the page
+}
+</script>
+
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h1>Admin's Side</h1>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search Doctor name or Email">
+                    <button>Search</button>
+                </div>
+                <p class="date">Today's Date: <script>
+                    const today = new Date();
+                    const formattedDate = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+                    document.write(formattedDate);
+                </script></p>
+                
+            </header>
+
+            <section class="status">
+                <div class="status-item">
+                    <h3>1</h3>
+                    <p>Doctors</p>
+                </div>
+                <div class="status-item">
+                    <h3>2</h3>
+                    <p>Patients</p>
+                </div>
+                <div class="status-item">
+                    <h3>1</h3>
+                    <p>New Booking</p>
+                </div>
+                <div class="status-item">
+                    <h3>0</h3>
+                    <p>Today Sessions</p>
+                </div>
+            </section>
+
+            <section class="appointments-sessions">
+                <!-- Expandable Upcoming Appointments Section -->
+                <div class="appointments">
+                    <h2>Upcoming Appointments until Next Friday</h2>
+                    <p>Here's Quick access to Upcoming Appointments until 7 days</p>
+                    <div class="expandable-content" id="appointments-content">
+                        <table>
+                            <tr>
+                                <th>Appointment Number</th>
+                                <th>Patient Name</th>
+                                <th>Doctor</th>
+                                <th>Session</th>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="empty-table">No upcoming appointments</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button class="show-btn" onclick="toggleContent('appointments-content')">Show all Appointments</button>
+                </div>
+
+                <!-- Expandable Upcoming Sessions Section -->
+                <div class="sessions">
+                    <h2>Upcoming Sessions until Next Friday</h2>
+                    <p>Here's Quick access to Upcoming Sessions that are scheduled until 7 days</p>
+                    <div class="expandable-content" id="sessions-content">
+                        <table>
+                            <tr>
+                                <th>Session Title</th>
+                                <th>Doctor</th>
+                                <th>Scheduled Date & Time</th>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="empty-table">No upcoming sessions</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button class="show-btn" onclick="toggleContent('sessions-content')">Show all Sessions</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // JavaScript function to toggle expand/collapse of content
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

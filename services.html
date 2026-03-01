@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Doctor Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline CSS for demonstration; ideally, this should go into styles.css */
+        .form-heading {
+            text-align: center;
+            text-decoration: underline;
+        }
+        <style>
+        <style>
+/* Basic dropdown styling */
+.nav-item {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.nav-item:hover .dropdown-content {
+    display: block;
+}
+</style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="profile-placeholder.png" alt="Profile" class="profile-pic">
+                <h2>Administrator</h2>
+                <p>admin@edoc.com</p>
+                <button class="logout-btn">Log out</button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="admin.html">Dashboard</a></li>
+                    <li class="nav-item">
+                        <a href="#">Doctors Project</a>
+                        <div class="dropdown-content">
+                            <a href="doc.html">Add Doctor</a>
+                            <a href="list.php">View Doctor</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Services</a>
+                        <div class="dropdown-content">
+                            <a href="services.html">Add Service</a>
+                            <a href="serviceview.php">View Service</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Manage Booking</a>
+                        <div class="dropdown-content">
+                            <a href="bookinglist.php">Dr Booking</a>
+                            <a href="servicelist.php">Service Booking</a>
+                        </div>
+                    </li>
+                    <li><a href="feedbacklist.php">Feedback</a></li>
+                    <li><a href="adminlist.php">Reports</a></li>
+                    <li><a href="#" onclick="confirmLogout(); return false;">Logout</a></li>
+                </ul>
+            </nav>
+            <script>
+                function confirmLogout() {
+                    if (confirm("Are you sure you want to log out?")) {
+                        window.location.href = "log.html";
+                    }
+                }
+            </script>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1>Admin's Side</h1>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search Doctor name or Email">
+                    <button>Search</button>
+                </div>
+                <p class="date">Today's Date: <script>
+                    const today = new Date();
+                    const formattedDate = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+                    document.write(formattedDate);
+                </script></p>
+                
+            </header>
+
+            <section class="status">
+                <div class="status-item">
+                    <h3>1</h3>
+                    <p>Doctors</p>
+                </div>
+                <div class="status-item">
+                    <h3>2</h3>
+                    <p>Patients</p>
+                </div>
+                <div class="status-item">
+                    <h3>1</h3>
+                    <p>New Booking</p>
+                </div>
+                <div class="status-item">
+                    <h3>0</h3>
+                    <p>Today Sessions</p>
+                </div>
+            </section>
+
+            <!-- Form Heading -->
+            <section class="form-section">
+                <h1 class="form-heading">Book our services</h1>
+                <form class="doctor-form" action="service.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="service_name">service_name:</label>
+                        <input type="text" id="service_name" name="service_name" placeholder="service" required>
+                    </div>
+
+                   
+                    <div class="form-group">
+                        <label for="description">description:</label>
+                        <textarea id="description" name="description" placeholder="description" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Cateogory">category:</label>
+                        <input type ="text" id="category" name="category" rows="4" placeholder="category" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">price</label>
+                        <input type ="int" id="price" name="price" rows="4" placeholder="price" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">duration:</label>
+                        <input type="time" id="duration" name="duration" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="available_appointment">available_appointment:</label>
+                        <input type="time" id="available_appointment" name="available_appointment" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="speical requirements">special_requirement:</label>
+                        <input type="text" id="special_requirement" name="special_requirement" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="images">images:</label>
+                        <input type="file" id="image" name="image" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn">submit</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
